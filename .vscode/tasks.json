@@ -1,0 +1,41 @@
+/*
+* clang编译c++:
+* clang++ -std=c++11 -stdlib=libc++ -g main.cpp -o main
+*/
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: clang build & run",
+            "dependsOn": [
+                "C/C++:clang build"
+            ],
+            "command": "${fileDirname}/build/${fileBasenameNoExtension}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "C/C++:clang build",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-std=c++11",
+                "-stdlib=libc++",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/build/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        }
+    ],
+    "version": "2.0.0"
+}
