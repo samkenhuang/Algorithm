@@ -5,6 +5,18 @@ using namespace std;
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
+        char a = board[0][0];
+        char b = board[0][1];
+        int row = board.size(), col = board[0].size();
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (board[i][j] == )
+                {
+                    /* code */
+                }
+                
+            }
+        }
         return true;
     }
 };
