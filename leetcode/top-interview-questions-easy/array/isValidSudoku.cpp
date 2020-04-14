@@ -1,20 +1,32 @@
 #include "../../util/stl.h"
 
-using namespace std;
-
 class Solution {
 public:
     bool isValidSudoku(vector<vector<char>>& board) {
         char a = board[0][0];
         char b = board[0][1];
         int row = board.size(), col = board[0].size();
+        vector<set<char>> rowSet(9), colSet(9), boxSet(9);
+        vector<int> rowCount(9, 0), colCount(9, 0), boxCount(9, 0);
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
-                if (board[i][j] == )
-                {
-                    /* code */
+                if(board[i][j] !=  '.') {
+                    rowSet[i].insert(board[i][j]);
+                    rowCount[i]++;
+                    colSet[j].insert(board[i][j]);
+                    colCount[j]++;
+                    int index = (i / 3) * 3 + (j / 3);
+                    boxSet[index].insert(board[i][j]);
+                    boxCount[index]++;
                 }
                 
+            }
+        }
+        for (int i = 0; i < 9; i ++) {
+            if (rowSet[i].size() != rowCount[i] || 
+                colSet[i].size() != colCount[i] ||
+                boxSet[i].size() != boxCount[i]) {
+                    return false;
             }
         }
         return true;

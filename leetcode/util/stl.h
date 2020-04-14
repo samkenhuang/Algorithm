@@ -26,3 +26,22 @@ void vectorD1(vector<T> &v, T arr[], int len) {
         v.push_back(arr[i]);
     }
 }
+
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+    ListNode(vector<int> v) {
+        vector<int>::iterator it = v.begin();
+        val = v[0]; ++ it;
+        ListNode *curr = this;
+        while (it != v.end()) {
+            ListNode* node = new ListNode(*it);
+            curr->next = node;
+            curr = curr->next;
+            ++ it;
+        }
+        curr->next = NULL;
+    }
+};
