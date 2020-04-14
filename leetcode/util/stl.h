@@ -3,6 +3,9 @@
 #include <unordered_map>
 #include <math.h>
 #include <map>
+#include <set>
+#include <string>
+#include <stack>
 
 using namespace std;
 
