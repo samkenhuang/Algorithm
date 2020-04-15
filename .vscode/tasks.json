@@ -35,7 +35,7 @@
             "label": "C/C++:clang build",
             "command": "/usr/bin/clang++",
             "args": [
-                "-std=c++11",
+                "-std=c++17",
                 "-stdlib=libc++",
                 "-g",
                 "${file}",
