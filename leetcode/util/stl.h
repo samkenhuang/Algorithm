@@ -7,7 +7,6 @@
 #include <string>
 #include <stack>
 #include <queue>
-
 using namespace std;
 
 template<typename T>
@@ -46,3 +45,29 @@ struct ListNode {
         curr->next = NULL;
     }
 };
+
+/**
+ * 二叉树 
+ */
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+    TreeNode(vector<int> v) : val(v[0]) { // 通过顺序遍历数组构建二叉树
+        vector<int> leftv, rightv;
+        int currentIndex = 1, level = 2;
+        while (currentIndex < v.size()) {
+            for (int pivot = currentIndex + level / 2; currentIndex < pivot && currentIndex < v.size(); currentIndex ++) {
+                leftv.push_back(v[currentIndex]);
+            }
+            for (int pivot = currentIndex + level / 2; currentIndex < pivot && currentIndex < v.size(); currentIndex ++) {
+                rightv.push_back(v[currentIndex]);
+            }
+            level *= 2;
+        }
+        // 会有警告
+        left = leftv.size() > 0 && leftv[0] != NULL ? new TreeNode(leftv) : NULL;
+        right = rightv.size() > 0 && rightv[0] != NULL ? new TreeNode(rightv) : NULL;
+    }
+ };
