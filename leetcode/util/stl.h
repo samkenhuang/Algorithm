@@ -66,7 +66,7 @@ struct TreeNode {
             }
             level *= 2;
         }
-        // 会有警告
+        // 会有警告, 目前没想好怎么处理
         left = leftv.size() > 0 && leftv[0] != NULL ? new TreeNode(leftv) : NULL;
         right = rightv.size() > 0 && rightv[0] != NULL ? new TreeNode(rightv) : NULL;
     }
